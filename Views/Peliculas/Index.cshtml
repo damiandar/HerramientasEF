@@ -1,0 +1,18 @@
+@model List<PeliculasDto>
+
+
+<table class="table">
+
+    @foreach (var pelicula in Model)
+    {
+        <tr>
+            <td>@pelicula.Id</td>
+            <td>@pelicula.Titulo</td>
+            <td>@pelicula.Duracion</td>
+            <td>@pelicula.Anio</td>
+            <td>@pelicula.GeneroNombre</td>
+            <td>@Html.ActionLink("Ver","Detalle",new {id = pelicula.Id})</td>
+        </tr>
+    }
+
+</table>

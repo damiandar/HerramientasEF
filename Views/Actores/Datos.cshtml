@@ -1,0 +1,39 @@
+@model ActorDto
+<h2>Datos del actor</h2>
+<div class="form-group">
+    @Html.LabelFor(p => p.Id)
+    @Html.TextBoxFor(p=> p.Id,new {@class="form-control",@readonly="readonly"})
+</div>
+<div class="form-group">
+    @Html.LabelFor(p => p.Nombre)
+    @Html.TextBoxFor(p=> p.Nombre,new {@class="form-control",@readonly="readonly"})
+</div>
+<div class="form-group">
+    @Html.LabelFor(p => p.Apellido)
+    @Html.TextBoxFor(p=> p.Apellido,new {@class="form-control"})
+</div>
+<div class="form-group">
+    @Html.LabelFor(p => p.Bio.Origen)
+    @Html.TextBoxFor(p=> p.Bio.Origen,new {@class="form-control"})
+</div>
+
+
+<h2>Peliculas</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Genero</th>
+    </tr>
+
+    @foreach (var peli in Model.Pelis)
+    {
+        <tr>
+            <td>@peli.Id</td>
+            <td>@peli.Titulo </td>
+            <td>@peli.GeneroNombre </td>
+
+        </tr>
+    }
+</table>

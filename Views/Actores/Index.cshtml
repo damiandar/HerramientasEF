@@ -1,0 +1,19 @@
+@model List<ActorDto>
+
+<td>@Html.ActionLink("Nuevo Actor","Crear")</td>
+<table class="table">
+
+    @foreach (var actor in Model)
+    {
+        <tr>
+            <td>@actor.Id</td>
+            <td>@actor.Nombre</td>
+            <td>@actor.Apellido</td> 
+            <td>@actor.Origen</td>
+            <td>@actor.Bio.Origen</td>
+            <td>@Html.ActionLink("Ver","Datos",new {id = actor.Id})</td>
+            <td>@Html.ActionLink("Eliminar","Borrar",new {id = actor.Id})</td>
+        </tr>
+    }
+
+</table>
