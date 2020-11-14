@@ -4,15 +4,22 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using ProyMVC.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ProyMVC.Controllers
 {
     public class ActoresController:Controller
     {
        private readonly CineDbContext _context;
-        public ActoresController(CineDbContext context){
+       private readonly IWebHostEnvironment _hostingEnvironment;
+
+        public ActoresController(CineDbContext context,
+                                IWebHostEnvironment hostingEnviroment){
             _context=context;
+            _hostingEnvironment=hostingEnviroment;
         }
+
         public IActionResult Index(){
             var Actores= _context.Actores 
                 .Select(a => new ActorDto(){
@@ -20,7 +27,8 @@ namespace ProyMVC.Controllers
                     Apellido=a.Apellido,
                     Origen= a.Bios.Origen,
                     Bio=(a.Bios== null) ? new Bios(){ BioId=1, Origen="Desconocido"} : a.Bios,
-                    Id=a.Id
+                    Id=a.Id,
+                    FotoRuta=(a.FotoRuta==null) ? "sinfoto.png" : a.FotoRuta
                }).ToList();
             return View(Actores);
         }
@@ -87,10 +95,20 @@ namespace ProyMVC.Controllers
 
         [HttpPost]
         public IActionResult Crear(Actores actor){
+            if(actor.Foto!=null){
+                string carpetaFotos=Path.Combine(_hostingEnvironment.WebRootPath,"imagenes");
+                string nombreArchivo=actor.Foto.FileName;
+                string rutaCompleta=Path.Combine(carpetaFotos,nombreArchivo);
+                //subimos la imagen al servidor
+                actor.Foto.CopyTo(new FileStream(rutaCompleta,FileMode.Create));
+                //guardar la ruta de la imagen en la base de datos
+                actor.FotoRuta=nombreArchivo;
+            }
             _context.Actores.Add(actor);
             _context.SaveChanges();
             return RedirectToAction("Index");  
         }
+
        public IActionResult Borrar(int id){
            var actor=_context.Actores.Where(x=> x.Id==id).First();
            //_context.Actores.FromSqlRaw("delete from actores where id={0}",id);

@@ -12,6 +12,9 @@ namespace ProyMVC.Models
         public Bios Bio {get;set;}
 
         public string Origen {get;set;}
+
+        public string FotoRuta{get;set;}
+        
         public List<PeliculasDto> Pelis{get;set;}
 
         //public virtual Bios Bios { get; set; }

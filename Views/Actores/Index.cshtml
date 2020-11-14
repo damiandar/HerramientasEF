@@ -6,6 +6,7 @@
     @foreach (var actor in Model)
     {
         <tr>
+            <td><img src='@Url.Content("~/imagenes/" + @actor.FotoRuta  )' class="rounded-circle" style="width:75px; height:75px"/> </td>
             <td>@actor.Id</td>
             <td>@actor.Nombre</td>
             <td>@actor.Apellido</td> 
