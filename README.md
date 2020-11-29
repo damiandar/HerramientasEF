@@ -3,17 +3,17 @@
 ## echo "Hola, mundo!" > README.md
 
 ## pego en csproj las librerias que necesito
-<pre>
- <PackageReference Include="microsoft.entityframeworkcore" Version="3.1.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0" /> 
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
-</pre>
+
+<PackageReference Include="microsoft.entityframeworkcore" Version="3.1.9" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
+<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0" /> 
+<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
+<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+
 
 ## dotnet restore
 
@@ -71,4 +71,18 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 ## En Views/Shared/_Layout.cshtml
 ### agrego <partial name="_LoginPartial" ></partial>
+
+
+### En areas Identity está todo el código generado el cual podemos modificar las vistas y los controladores generados
+
+## En Areas/Identity/IdentityHostingStartup.cs podemos configurar las distintas opciones como vimos en clase (usuario bloqueado, caracteres especiales, longitud de contraseña).
+
+## La autorización en ASP.NET Core se controla con AuthorizeAttribute y sus diversos parámetros. En su forma más simple, aplicar el atributo [Authorize] a un controlador o acción, limita el acceso a ese componente a cualquier usuario autenticado.
+
+## También puede utilizar el atributo AllowAnonymous para permitir el acceso de usuarios no autenticados a acciones individuales.
+
+## [AllowAnonymous]omite todas las declaraciones de autorización. Si combina [AllowAnonymous]y cualquier [Authorize]atributo, los [Authorize]atributos se ignoran. Por ejemplo, si aplica [AllowAnonymous]en el nivel de controlador, [Authorize]se ignora cualquier atributo en el mismo controlador (o en cualquier acción dentro de él).
+
+
+## var user = await _userManager.GetUserAsync(HttpContext.User);
 

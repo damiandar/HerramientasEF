@@ -29,7 +29,7 @@ namespace ProyMVC
             services.AddDbContext<CineDbContext>(o 
             => o.UseSqlServer(Configuration.GetConnectionString("CineConnectionString")));
             //agregado para identity
-            services.AddRazorPages();
+            services.AddRazorPages( );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
