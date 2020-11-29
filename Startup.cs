@@ -28,7 +28,8 @@ namespace ProyMVC
             //AGREGO ESTA LINEA
             services.AddDbContext<CineDbContext>(o 
             => o.UseSqlServer(Configuration.GetConnectionString("CineConnectionString")));
-
+            //agregado para identity
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +47,9 @@ namespace ProyMVC
 
             app.UseRouting();
 
+            //agregado para identity
+            app.UseAuthentication();
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -53,6 +57,8 @@ namespace ProyMVC
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                //agregado para identity
+                endpoints.MapRazorPages();
             });
         }
     }
