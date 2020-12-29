@@ -26,8 +26,10 @@ namespace ProyMVC
         {
             services.AddControllersWithViews();
             //AGREGO ESTA LINEA
-            services.AddDbContext<CineDbContext>(o 
-            => o.UseSqlServer(Configuration.GetConnectionString("CineConnectionString")));
+            services.AddDbContext<CineDbContext>(
+            o => 
+                o.UseSqlServer(Configuration.GetConnectionString("CineConnectionString")).EnableSensitiveDataLogging()
+            );
 
         }
 
