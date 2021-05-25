@@ -1,23 +1,27 @@
 dotnet restore
 
 agrego en el archivo appsettings.json
-"Microsoft.EntityFrameworkCore.Database.Command": "Information"
 
-y en startup.cs
 `
-        //AGREGO ESTA LINEA
+"Microsoft.EntityFrameworkCore.Database.Command": "Information"
+`
+y en startup.cs
+
+```html
+//AGREGO ESTA LINEA
             services.AddDbContext<CineDbContext>(
             o => 
                 o.UseSqlServer(Configuration.GetConnectionString("CineConnectionString")).EnableSensitiveDataLogging()
             );
-`
+```
 
 ## Pasos previos:
 
 Crear un proyecto .net core webapi o angular.
 
+`
 dotnet new webapi --o ProyCine --no-https
-
+`
 
 ## Instalar los siguientes paquetes nuget
 Dentro de la carpeta del proyecto 
@@ -60,23 +64,24 @@ Abrir el archivo CineDbContext y comentar la línea que dice #warning...
 ## Punto 5: Ordenando los archivos
 
 Agregar en el archivo Appsettings.json el connection string:
-
+```html
   "ConnectionStrings": {
     "CineConnectionString": 
     " Server=192.168.99.100;Database=Cine;user=sa;password=Password_123; "
   },
-
+```
 En el archivo startup.cs agregar en el siguiente método la línea.
 using ProyCine.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-   `public void ConfigureServices(IServiceCollection services)
+   ```html
+   public void ConfigureServices(IServiceCollection services)
         {
 //AGREGO ESTA LINEA
             services.AddDbContext<CineDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("CineConnectionString")));
         }
-`
+```
 
 En el dbcontext comento la línea con el connection string
 ---
@@ -86,7 +91,7 @@ En el dbcontext comento la línea con el connection string
     
     dotnet aspnet-codegenerator controller -name PeliculasController -api -m Pelicula -dc CineDbContext -outDir Controllers
 
-Tener en cuenta:
+## Tener en cuenta:
 
 -	controller especifica que voy a crear un controlador
 -	-name especifica el nombre del controlador
