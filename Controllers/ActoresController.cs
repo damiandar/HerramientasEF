@@ -63,12 +63,11 @@ namespace ProyMVC.Controllers
                                 Titulo=a.Pelicula.Titulo,
                                 GeneroNombre=a.Pelicula.Genero.Descripcion
                             }
-                            )
-                            .Take(3)
+                            ) 
                             .ToList(),
                     Id=a.Id
                }).FirstOrDefault();
-
+                //.Take(3)
 
             return View(Actores);
         }
