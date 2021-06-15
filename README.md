@@ -1,3 +1,7 @@
+## Nuevas funcionalidades
+
+Edicion de foto y muestra sinfoto.jpg a las vacias.
+
 dotnet restore
 
 agrego en el archivo appsettings.json

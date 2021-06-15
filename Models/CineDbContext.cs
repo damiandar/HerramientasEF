@@ -20,7 +20,13 @@ namespace ProyMVC.Models
         public virtual DbSet<Bios> Bios { get; set; }
         public virtual DbSet<Generos> Generos { get; set; }
         public virtual DbSet<Peliculas> Peliculas { get; set; } 
+        public virtual DbSet<Producto> Productos { get; set; } 
+        public virtual DbSet<Tamanio> Tamanios { get; set; } 
+        public virtual DbSet<Categoria> Categorias { get; set; } 
 
+        
+        public virtual DbSet<Sucursal> Sucursales { get; set; } 
+        public virtual DbSet<Color> Colores { get; set; } 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

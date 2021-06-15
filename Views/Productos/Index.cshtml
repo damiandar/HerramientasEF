@@ -1,0 +1,36 @@
+@model List<Producto>
+
+<table class="table">
+    <tr>
+        <td></td>
+        <td>Id</td>
+        <td>Nombre</td>
+        <td>Marca</td>
+        <td>Precio</td>
+        <td>Tamaño Descripciôn</td>
+        <td>Tamaño Medida</td>
+        <td>Categoria</td>
+        <td></td>
+        <td></td>
+    </tr>
+@foreach (var prod in Model)
+{
+<tr>
+    <td>
+        <img src='@Url.Content("~/imagenes/"+ (prod.FotoRuta ?? "sinfoto.jpg") )' class="rounded-circle" style="width: 75px; height: 75px;" />  
+    </td>
+    <td>@prod.Id</td>
+    <td>@prod.Nombre</td>
+    <td>@prod.Marca</td>
+    <td>@prod.Precio</td>
+    <td>@prod.Tamanio.Descripcion</td>
+    <td>@prod.Tamanio.Medida</td>
+    <td>@prod.Categoria.Nombre</td>
+    <td>@Html.ActionLink("Modificar", "ModificarVM", new { id = prod.Id })</td>
+    <td>@Html.ActionLink("Eliminar", "Borrar", new { id = prod.Id })</td>
+</tr>
+    
+}
+
+
+</table>

@@ -1,0 +1,64 @@
+@model ProyMVC.Models.VM.ProductoVM
+
+<h2>Datos del producto</h2>
+@using (@Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Producto.Id)
+
+        @Html.TextBoxFor(p => p.Producto.Id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Producto.Nombre)
+
+        @Html.TextBoxFor(p => p.Producto.Nombre, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Producto.Marca)
+
+        @Html.TextBoxFor(p => p.Producto.Marca, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Producto.Precio)
+
+        @Html.TextBoxFor(p => p.Producto.Precio, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Producto.TamanioId)
+        @Html.DropDownListFor(p => p.Producto.TamanioId,
+        new SelectList(Model.Tamanios, "Id", "Descripcion"), "-Seleccionar", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Producto.CategoriaId)
+        @Html.DropDownListFor(p => p.Producto.CategoriaId,
+        new SelectList(Model.Categorias, "Id", "Nombre"), "-Seleccionar", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.HiddenFor(p => p.Producto.FotoRuta)
+        @Html.LabelFor(p => p.Producto.Foto)
+        <div class="custom-file">
+            @Html.TextBoxFor(p => p.Producto.Foto, new { type = "file", @class = "form-control custom-file-input" })
+            @Html.LabelFor(p => p.Producto.Foto, "Cargar foto", new { @class = "custom-file-label" })
+        </div>
+    </div>
+
+
+    @section scripts {
+        <script>
+            $('.custom-file-input').on('change',
+            function() { 
+                var fileName = $(this).val().split("\\").pop(); 
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
+}
+
+        <input type="submit" class="btn btn-primary" value="Guardar">
+    }
