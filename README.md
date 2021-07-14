@@ -46,6 +46,10 @@ Hacer un build de la aplicación con el siguiente comando:
 
 	dotnet build
 
+En model puedo poner la siguiente linea para no crear clave autoincremental:
+  
+  [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]    
+
 Luego tipear el siguiente comando:
 
 	dotnet ef
