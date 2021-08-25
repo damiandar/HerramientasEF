@@ -62,6 +62,10 @@ Crear el archivo dbcontext utilizando el siguiente comando:
 
     dotnet ef dbcontext scaffold "Server=192.168.99.100;Database=Instituto;user=sa;password=Password_123; "  Microsoft.EntityFrameworkCore.Sqlserver   -o Models -c InstitutoDbContext
 
+Crea el dbcontext con determinadas tablas
+
+dotnet ef dbcontext scaffold "Server=desadb;Database=Instituto;user=sa;password=Password_123; "  Microsoft.EntityFrameworkCore.Sqlserver   -o Models -c InstitutoDbContext -t Afiliados -t Localidades
+
 Alternativamente la instancia en tu PC puede ser localhost o .\sqlexpress, y si no tenemos configurado usuario y password podemos utilizar trusted_connection=true.
 Abrir el archivo CineDbContext y comentar la línea que dice #warning...
 
