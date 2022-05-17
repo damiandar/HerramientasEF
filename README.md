@@ -1,3 +1,7 @@
+## Exportar Script SQL
+
+ dotnet ef migrations script
+
 ## Nuevas funcionalidades
 
 Edicion de foto y muestra sinfoto.jpg a las vacias.
