@@ -1,3 +1,10 @@
+## Insertar datos en la migración
+```html
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.Sql("INSERT INTO MyNewTable(NyColumnName) Values('Test')");
+	}
+```
 ## Crear y borrar la base cuando ejecuta el proyecto
 
 ```html
