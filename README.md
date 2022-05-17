@@ -17,6 +17,10 @@ public BookContext(DbContextOptions<BookContext> options)
             
         }
 ```
+### En model puedo poner la siguiente linea para no crear clave autoincremental:
+  
+  <b>[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]    </b>
+
 ## Exportar Script SQL
 
  dotnet ef migrations script
@@ -69,9 +73,6 @@ Hacer un build de la aplicación con el siguiente comando:
 
 	dotnet build
 
-En model puedo poner la siguiente linea para no crear clave autoincremental:
-  
-  [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]    
 
 Luego tipear el siguiente comando:
 
@@ -82,13 +83,14 @@ Crear la base de datos Cine desde el Management Studio con el siguiente comando:
 	create database cine
 
 Crear el archivo dbcontext utilizando el siguiente comando:
-
+```html
     dotnet ef dbcontext scaffold "Server=192.168.99.100;Database=Instituto;user=sa;password=Password_123; "  Microsoft.EntityFrameworkCore.Sqlserver   -o Models -c InstitutoDbContext
+```
 
-Crea el dbcontext con determinadas tablas
-
+### Crea el dbcontext con determinadas tablas
+```html
 dotnet ef dbcontext scaffold "Server=desadb;Database=Instituto;user=sa;password=Password_123; "  Microsoft.EntityFrameworkCore.Sqlserver   -o Models -c InstitutoDbContext -t Afiliados -t Localidades
-
+```
 Alternativamente la instancia en tu PC puede ser localhost o .\sqlexpress, y si no tenemos configurado usuario y password podemos utilizar trusted_connection=true.
 Abrir el archivo CineDbContext y comentar la línea que dice #warning...
 
