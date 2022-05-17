@@ -1,3 +1,15 @@
+## Crear y borrar la base cuando ejecuta el proyecto
+
+```html
+public BookContext(DbContextOptions<BookContext> options)
+            :base(options)
+        {
+             
+            //Database.EnsureCreated();
+            //Database.EnsureDeleted();
+            
+        }
+```
 ## Exportar Script SQL
 
  dotnet ef migrations script
