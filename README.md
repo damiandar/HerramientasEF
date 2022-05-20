@@ -123,11 +123,13 @@ using Microsoft.EntityFrameworkCore;
 En el dbcontext comento la línea con el connection string
 ---
 ## Punto 6: Crear controladores con el comando dotnet aspnet-codegenerator
-
-    dotnet tool update -g dotnet-aspnet-codegenerator
+```html   
+dotnet tool update -g dotnet-aspnet-codegenerator
     
-    dotnet aspnet-codegenerator controller -name PeliculasController -api -m Pelicula -dc CineDbContext -outDir Controllers
-
+dotnet aspnet-codegenerator controller -name PeliculasController -api -m Pelicula -dc CineDbContext -outDir Controllers
+    
+dotnet aspnet-codegenerator controller -name PeliculasController -webapp -m Pelicula -dc CineDbContext -outDir Controllers
+```
 ## Tener en cuenta:
 
 -	controller especifica que voy a crear un controlador
