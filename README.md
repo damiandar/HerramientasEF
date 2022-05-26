@@ -82,7 +82,7 @@ Crear la base de datos Cine desde el Management Studio con el siguiente comando:
 
 	create database cine
 
-Crear el archivo dbcontext utilizando el siguiente comando:
+### Crear el archivo dbcontext utilizando el siguiente comando:
 ```html
     dotnet ef dbcontext scaffold "Server=192.168.99.100;Database=Instituto;user=sa;password=Password_123; "  Microsoft.EntityFrameworkCore.Sqlserver   -o Models -c InstitutoDbContext
 ```
@@ -90,6 +90,12 @@ Crear el archivo dbcontext utilizando el siguiente comando:
 ### Crea el dbcontext con determinadas tablas
 ```html
 dotnet ef dbcontext scaffold "Server=desadb;Database=Instituto;user=sa;password=Password_123; "  Microsoft.EntityFrameworkCore.Sqlserver   -o Models -c InstitutoDbContext -t Afiliados -t Localidades
+```
+
+### Crear el dbcontext con Data Annotations
+
+```
+dotnet ef dbcontext scaffold "Server=localhost;Database=herramientas2022;trusted_connection=true; "  Microsoft.EntityFrameworkCore.Sqlserver   -o ModelsDA -c IsteaDbContext --data-annotations
 ```
 Alternativamente la instancia en tu PC puede ser localhost o .\sqlexpress, y si no tenemos configurado usuario y password podemos utilizar trusted_connection=true.
 Abrir el archivo CineDbContext y comentar la línea que dice #warning...
