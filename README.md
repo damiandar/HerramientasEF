@@ -127,8 +127,8 @@ En el dbcontext comento la línea con el connection string
 dotnet tool update -g dotnet-aspnet-codegenerator
     
 dotnet aspnet-codegenerator controller -name PeliculasController -api -m Pelicula -dc CineDbContext -outDir Controllers
-    
-dotnet aspnet-codegenerator controller -name PeliculasController -webapp -m Pelicula -dc CineDbContext -outDir Controllers
+
+dotnet aspnet-codegenerator razorpage -m Profesor -dc HerramientasDbContext -outDir ./Pages/Profesores
 ```
 ## Tener en cuenta:
 
