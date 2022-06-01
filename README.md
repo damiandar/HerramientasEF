@@ -144,3 +144,4 @@ dotnet aspnet-codegenerator razorpage -m Profesor -dc HerramientasDbContext -out
 -	-m toma la entidad a partir de la cual crea el controlador
 -	-dc especifica el dbcontext que utiliza
 -	-outDir es la carpeta donde coloca el controlador
+-	-udl Usa el layout por default
