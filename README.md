@@ -23,7 +23,9 @@ public BookContext(DbContextOptions<BookContext> options)
 
 ## Exportar Script SQL
 
- dotnet ef migrations script
+dotnet ef migrations script
+ 
+dotnet ef migrations script --output "script.sql" --context AppDbContext
 
 ## Nuevas funcionalidades
 
