@@ -69,7 +69,7 @@ También instalar las siguientes herramientas a nivel global
 
     dotnet tool install --global dotnet-ef 
     
-    dotnet tool install --global dotnet-aspnet-codegenerator
+    dotnet tool install --global dotnet-aspnet-codegenerator  --version 5.0.2
 
 Hacer un build de la aplicación con el siguiente comando:
 
