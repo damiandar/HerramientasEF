@@ -21,6 +21,10 @@ public BookContext(DbContextOptions<BookContext> options)
   
   <b>[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]    </b>
 
+/*clave compuesta*/
+modelBuilder.Entity<MaterialPieza>()
+                .HasKey(c => new { c.art_CodGen, c.MaterialId });
+		
 ## Exportar Script SQL
 
 dotnet ef migrations script
