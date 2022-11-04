@@ -1,3 +1,19 @@
+# Plantilla
+
+## Ejecutar Stored Procedures
+
+```html
+        List<Product> list;
+        string sql = "EXEC SalesLT.Product_Get @ProductID";
+        List<SqlParameter> parms = new List<SqlParameter>
+        {
+            // Create parameter(s)    
+            new SqlParameter { ParameterName = "@ProductID", Value = 706 }
+        };
+
+        list = _db.Products.FromSqlRaw<Product>(sql, parms.ToArray()).ToList();
+```
+
 ## Insertar datos en la migración
 ```html
         protected override void Up(MigrationBuilder migrationBuilder)
