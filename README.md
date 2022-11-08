@@ -18,6 +18,8 @@
             _context.SaveChanges();
         }
 ```
+https://dev.to/christianaugustyn/entity-framework-core-connected-vs-disconnected-3dk7
+
 ## Ejecutar Stored Procedures
 
 ```html
