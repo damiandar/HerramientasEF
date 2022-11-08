@@ -1,5 +1,23 @@
 # Plantilla
+## Entorno Desconectado
 
+```html
+        public void Agregar(Profesor profesor){
+            var profattach= _context.Attach(profesor);
+            profattach.State = EntityState.Added;
+            _context.SaveChanges();
+        }
+
+        public void Eliminar(Profesor profesor){
+            _context.Attach(profesor).State = EntityState.Deleted;
+            _context.SaveChanges();
+        }
+
+        public void Modificar(Profesor profesor){
+            _context.Attach(profesor).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+```
 ## Ejecutar Stored Procedures
 
 ```html
