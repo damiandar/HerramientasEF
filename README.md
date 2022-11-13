@@ -146,6 +146,19 @@ Abrir el archivo CineDbContext y comentar la línea que dice #warning...
 	dotnet ef migrations add AgregoBiodeActor
 	dotnet ef database update
 ---
+### Mapear una vista
+
+```
+dotnet ef dbcontext scaffold  "server=.;database=AccesoriosDos;trusted_connection=true;"  Microsoft.EntityFrameworkCore.Sqlserver   -o ModelsDA -c IsteaDbContext -t VistaFuerzaArticulos --data-annotations
+```
+Resultado
+```html
+            modelBuilder.Entity<VistaFuerzaArticulo>(entity =>
+            {
+                entity.ToView("VistaFuerzaArticulos");
+            });
+```
+
 ## Punto 5: Ordenando los archivos
 
 Agregar en el archivo Appsettings.json el connection string:
