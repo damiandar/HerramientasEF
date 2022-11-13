@@ -33,6 +33,18 @@ https://dev.to/christianaugustyn/entity-framework-core-connected-vs-disconnected
 
         list = _db.Products.FromSqlRaw<Product>(sql, parms.ToArray()).ToList();
 ```
+## Ejecutar Vista SQL
+
+```html
+            string sql = "select * from VistaMatrices where art_CodGen=@art_CodGen";
+            List<SqlParameter> parms = new List<SqlParameter>
+            {    
+                new SqlParameter { ParameterName = "@art_CodGen", Value = id }
+            };
+
+            var matrices=_context.Matrices.FromSqlRaw<Matriz>(sql, parms.ToArray());
+            return matrices.First();
+```
 
 ## Insertar datos en la migración
 ```html
